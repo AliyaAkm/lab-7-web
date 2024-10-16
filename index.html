@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Function Tests</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .result {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h1>JavaScript Function Tester</h1>
+
+<div class="section">
+    <h2>Sum of Two Numbers</h2>
+    <input id="sum1" type="number" placeholder="Enter first number">
+    <input id="sum2" type="number" placeholder="Enter second number">
+    <button onclick="calculateSum()">Calculate Sum</button>
+    <p class="result" id="sumResult"></p>
+</div>
+
+<div class="section">
+    <h2>Square Checker</h2>
+    <input id="squareNum" type="number" placeholder="Enter a number">
+    <button onclick="checkSquare()">Check Square</button>
+    <p class="result" id="squareResult"></p>
+</div>
+
+<div class="section">
+    <h2>Greeting</h2>
+    <input id="firstName" type="text" placeholder="First Name">
+    <input id="lastName" type="text" placeholder="Last Name">
+    <input id="age" type="number" placeholder="Age">
+    <button onclick="generateGreeting()">Greet</button>
+    <p class="result" id="greetingResult"></p>
+</div>
+
+<div class="section">
+    <h2>Minimum of Three Numbers</h2>
+    <input id="min1" type="number" placeholder="Enter first number">
+    <input id="min2" type="number" placeholder="Enter second number">
+    <input id="min3" type="number" placeholder="Enter third number">
+    <button onclick="findMin()">Find Min</button>
+    <p class="result" id="minResult"></p>
+</div>
+
+<div class="section">
+    <h2>Even or Odd Checker</h2>
+    <input id="evenOdd1" type="number" placeholder="Enter first number">
+    <input id="evenOdd2" type="number" placeholder="Enter second number">
+    <input id="evenOdd3" type="number" placeholder="Enter third number">
+    <button onclick="checkEvenOdd()">Check Even/Odd</button>
+    <p class="result" id="evenOddResult"></p>
+</div>
+
+<div class="section">
+    <h2>Range Checker</h2>
+    <input id="rangeStart" type="number" placeholder="Start of range">
+    <input id="rangeEnd" type="number" placeholder="End of range">
+    <input id="rangeNum" type="number" placeholder="Number to check">
+    <button onclick="checkRange()">Check Range</button>
+    <p class="result" id="rangeResult"></p>
+</div>
+
+<div class="section">
+    <h2>String of Numbers</h2>
+    <input id="strMin" type="number" placeholder="Min value">
+    <input id="strMax" type="number" placeholder="Max value">
+    <input id="strStep" type="number" placeholder="Step value">
+    <button onclick="createNumberString()">Create String</button>
+    <p class="result" id="numberStringResult"></p>
+</div>
+
+<div class="section">
+    <h2>Range Sum 1</h2>
+    <input id="rangeSumStart" type="number" placeholder="Start number">
+    <input id="rangeSumN" type="number" placeholder="N term">
+    <button onclick="calculateRangeSum1()">Calculate Sum</button>
+    <p class="result" id="rangeSum1Result"></p>
+</div>
+
+<div class="section">
+    <h2>Range Sum 2</h2>
+    <input id="rangeSumStart2" type="number" placeholder="Start of range">
+    <input id="rangeSumEnd2" type="number" placeholder="End of range">
+    <button onclick="calculateRangeSum2()">Calculate Range Sum</button>
+    <p class="result" id="rangeSum2Result"></p>
+</div>
+
+<div class="section">
+    <h2>Series Sum</h2>
+    <input id="seriesN" type="number" placeholder="N term">
+    <button onclick="calculateSeriesSum()">Calculate Series Sum</button>
+    <p class="result" id="seriesResult"></p>
+</div>
+
+<div class="section">
+    <h2>Number of Digits</h2>
+    <input id="digitNum" type="number" placeholder="Enter a number">
+    <button onclick="countNumberDigits()">Count Digits</button>
+    <p class="result" id="digitCountResult"></p>
+</div>
+
+<script>
+    function calculateSum() {
+        const a = parseFloat(document.getElementById('sum1').value);
+        const b = parseFloat(document.getElementById('sum2').value);
+        document.getElementById('sumResult').innerText = `Result: ${a + b}`;
+    }
+
+    function checkSquare() {
+        const num = parseInt(document.getElementById('squareNum').value);
+        document.getElementById('squareResult').innerText = `Result: ${Number.isInteger(Math.sqrt(num))}`;
+    }
+
+    function generateGreeting() {
+        const firstName = document.getElementById('firstName').value;
+        const lastName = document.getElementById('lastName').value;
+        const age = parseInt(document.getElementById('age').value);
+        document.getElementById('greetingResult').innerText = `Result: Hello, my name is ${firstName} ${lastName} and I am ${age} years old.`;
+    }
+
+    function findMin() {
+        const a = parseFloat(document.getElementById('min1').value);
+        const b = parseFloat(document.getElementById('min2').value);
+        const c = parseFloat(document.getElementById('min3').value);
+        document.getElementById('minResult').innerText = `Result: ${Math.min(a, b, c)}`;
+    }
+
+    function checkEvenOdd() {
+        const a = parseInt(document.getElementById('evenOdd1').value);
+        const b = parseInt(document.getElementById('evenOdd2').value);
+        const c = parseInt(document.getElementById('evenOdd3').value);
+        const allEven = (a % 2 === 0 && b % 2 === 0 && c % 2 === 0);
+        const allOdd = (a % 2 !== 0 && b % 2 !== 0 && c % 2 !== 0);
+
+        document.getElementById('evenOddResult').innerText = `Result: ${allEven ? 'even' : allOdd ? 'odd' : 'even/odd'}`;
+    }
+
+    function checkRange() {
+        const start = parseFloat(document.getElementById('rangeStart').value);
+        const end = parseFloat(document.getElementById('rangeEnd').value);
+        const num = parseFloat(document.getElementById('rangeNum').value);
+        const inRange = num >= start && num <= end;
+        document.getElementById('rangeResult').innerText = `Result: ${inRange ? 'In range' : 'Out of range'}`;
+    }
+
+    function createNumberString() {
+        const min = parseInt(document.getElementById('strMin').value);
+        const max = parseInt(document.getElementById('strMax').value);
+        const step = parseInt(document.getElementById('strStep').value);
+        let result = "";
+
+        for (let i = min; i <= max; i += step) {
+            result += i + " ";
+        }
+
+        document.getElementById('numberStringResult').innerText = `Result: ${result.trim()}`;
+    }
+
+    function calculateRangeSum1() {
+        const start = parseInt(document.getElementById('rangeSumStart').value);
+        const n = parseInt(document.getElementById('rangeSumN').value);
+        let sum = 0;
+
+        for (let i = 0; i < n; i++) {
+            for (let j = start; j < start + (n - i); j++) {
+                sum += j;
+            }
+        }
+
+        document.getElementById('rangeSum1Result').innerText = `Result: ${sum}`;
+    }
+
+    function calculateRangeSum2() {
+        const start = parseInt(document.getElementById('rangeSumStart2').value);
+        const end = parseInt(document.getElementById('rangeSumEnd2').value);
+        let sum = 0;
+
+        for (let i = start; i <= end; i++) {
+            sum += i;
+        }
+
+        document.getElementById('rangeSum2Result').innerText = `Result: ${sum}`;
+    }
+
+    function calculateSeriesSum() {
+        const n = parseInt(document.getElementById('seriesN').value);
+        let sum = 0;
+
+        for (let i = 1; i <= n; i++) {
+            sum += 1 / (i * i);
+        }
+
+        document.getElementById('seriesResult').innerText = `Result: ${sum.toFixed(2)}`;
+    }
+
+    function countNumberDigits() {
+        const num = document.getElementById('digitNum').value;
+        document.getElementById('digitCountResult').innerText = `Result: ${num.length}`;
+    }
+</script>
+
+</body>
+</html>
